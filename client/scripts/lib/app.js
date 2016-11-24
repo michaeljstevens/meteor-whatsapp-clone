@@ -5,6 +5,8 @@ import 'angular-ui-router';
 import 'ionic-scripts';
 import Angular from 'angular';
 import { Meteor } from 'meteor/meteor';
+import Loader from 'angular-ecmascript/module-loader';
+import RoutesConfig from '../routes.js';
 
 const App = "Whatsapp";
 
@@ -12,6 +14,8 @@ Angular.module(App, [
   'angular-meteor',
   'ionic'
 ]);
+
+new Loader(App).load(RoutesConfig);
 
 if(Meteor.isCordova) {
   Angular.element(document).on('deviceready', onReady);
